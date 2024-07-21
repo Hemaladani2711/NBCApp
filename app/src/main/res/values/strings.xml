@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">NBCApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_shows">Shows</string>
+    <string name="title_live">Live</string>
+    <string name="title_search">Search</string>
+    <string name="title_more">More</string>
+    <string name="txt_trending_now">Trending Now</string>
+    <string name="txt_continue_watching">Continue Watching</string>
+    <string name="txt_latest_episodes">Latest Episodes</string>
+    <string name="banner_image">Banner Image</string>
+    <string name="banner_provider">Banner provider</string>
+</resources>
