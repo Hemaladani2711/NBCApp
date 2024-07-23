@@ -6,12 +6,13 @@ import com.hemaladani.nbcapp.data.Item
 import com.hemaladani.nbcapp.data.Shelf
 import com.hemaladani.nbcapp.utils.Constants
 import com.hemaladani.nbcapp.utils.HomeUtils
+import javax.inject.Inject
 
-object HomeRepositoryImpl:HomeRepository {
-    private fun getHomeShelves():List<Shelf>? = HomeUtils.getShelves()
+class HomeRepositoryImpl @Inject constructor(private val homeUtils: HomeUtils) :HomeRepository {
+    private fun getHomeShelves():List<Shelf>? = homeUtils.getShelves()
 
     override fun getTrendingNowShelf():LiveData<List<Item>?>{
-        var itemsLiveData = MutableLiveData<List<Item>?>()
+        val itemsLiveData = MutableLiveData<List<Item>?>()
         var items:List<Item>? = null
         getHomeShelves()?.let{shelves->
             for (shelf in shelves){
@@ -28,7 +29,7 @@ object HomeRepositoryImpl:HomeRepository {
     }
 
     override fun getLatestEpisodesShelf():LiveData<List<Item>?>{
-        var itemsLiveData = MutableLiveData<List<Item>?>()
+        val itemsLiveData = MutableLiveData<List<Item>?>()
         var items:List<Item>? = null
         getHomeShelves()?.let{shelves->
             for (shelf in shelves){
@@ -45,7 +46,7 @@ object HomeRepositoryImpl:HomeRepository {
     }
 
     override fun getContinueWatchingShelf():LiveData<List<Item>?>{
-        var itemsLiveData = MutableLiveData<List<Item>?>()
+        val itemsLiveData = MutableLiveData<List<Item>?>()
         var items:List<Item>? = null
         getHomeShelves()?.let{shelves->
             for (shelf in shelves){

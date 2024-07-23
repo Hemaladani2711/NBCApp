@@ -1,11 +1,7 @@
 package com.hemaladani.nbcapp
 
 import android.app.Application
-import com.hemaladani.nbcapp.utils.HomeUtils
+import dagger.hilt.android.HiltAndroidApp
 
-class NBCAppApplication: Application() {
-    override fun onCreate() {
-        super.onCreate()
-        HomeUtils.init(this)
-    }
-}
+@HiltAndroidApp
+class NBCAppApplication: Application()

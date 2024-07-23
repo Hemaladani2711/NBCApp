@@ -5,18 +5,16 @@ import android.util.Log
 import com.google.gson.Gson
 import com.hemaladani.nbcapp.data.Root
 import com.hemaladani.nbcapp.data.Shelf
-import okio.IOException
+import java.io.IOException
 import java.io.InputStream
+import javax.inject.Inject
 
-object HomeUtils{
+class HomeUtils @Inject constructor(val context: Context){
     var shelveItems:List<Shelf>? = null
-    lateinit var mContext: Context
-    fun init(context: Context){
-        mContext = context
-    }
+
     fun getShelves():List<Shelf>?{
         try {
-            val inputStream: InputStream = mContext.getAssets().open("homepage.json")
+            val inputStream: InputStream = context.getAssets().open("homepage.json")
             val size = inputStream.available()
             val buffer = ByteArray(size)
             inputStream.read(buffer)
