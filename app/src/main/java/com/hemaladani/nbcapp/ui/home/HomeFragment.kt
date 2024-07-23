@@ -5,14 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hemaladani.nbcapp.R
 import com.hemaladani.nbcapp.databinding.FragmentHomeBinding
 import com.hemaladani.nbcapp.utils.RecyclerViewSpaceItemDecoration
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
@@ -23,14 +24,13 @@ class HomeFragment : Fragment() {
     private lateinit var recyclerViewTrendingNow: RecyclerView
     private lateinit var recyclerViewLatestEpisodes: RecyclerView
     private lateinit var recyclerViewContinueWatching: RecyclerView
+    private val homeViewModel:HomeViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -58,20 +58,20 @@ class HomeFragment : Fragment() {
         }
         homeViewModel.getTrendingNowShelf().observe(viewLifecycleOwner) {
             it?.let {
-                val trendingNowAdapter = TrendingNowAdapter(requireContext(), it)
+                val trendingNowAdapter = HomeShelvesAdapter(requireContext(), it)
                 binding.recyclerviewTrendingNow.adapter = trendingNowAdapter
             }
 
         }
         homeViewModel.getLatestEpisodesShelf().observe(viewLifecycleOwner) {
             it?.let {
-                val trendingNowAdapter = TrendingNowAdapter(requireContext(), it)
+                val trendingNowAdapter = HomeShelvesAdapter(requireContext(), it)
                 binding.recyclerviewLatestEpisodes.adapter = trendingNowAdapter
             }
         }
         homeViewModel.getContinueWatchingShelf().observe(viewLifecycleOwner) {
             it?.let {
-                val trendingNowAdapter = TrendingNowAdapter(requireContext(), it)
+                val trendingNowAdapter = HomeShelvesAdapter(requireContext(), it)
                 binding.recyclerviewContinueWatching.adapter = trendingNowAdapter
             }
         }

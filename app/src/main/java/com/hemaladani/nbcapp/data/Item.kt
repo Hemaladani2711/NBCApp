@@ -1,8 +1,5 @@
 package com.hemaladani.nbcapp.data
 
-import com.squareup.moshi.JsonClass
-
-@JsonClass(generateAdapter = true)
 data class Item (
     var type: String? = null,
     var tagline: String? = null,

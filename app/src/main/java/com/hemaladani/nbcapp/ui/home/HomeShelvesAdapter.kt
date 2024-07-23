@@ -11,15 +11,14 @@ import com.bumptech.glide.Glide
 import com.hemaladani.nbcapp.R
 import com.hemaladani.nbcapp.data.Item
 
-class TrendingNowAdapter(val context:Context, val trendingNowItems:List<Item>):
+class HomeShelvesAdapter(val context:Context, val trendingNowItems:List<Item>):
     RecyclerView
-    .Adapter<TrendingNowAdapter
+    .Adapter<HomeShelvesAdapter
     .TrendingNowViewHolder>() {
     inner class TrendingNowViewHolder(trendingNowItemView: View): RecyclerView.ViewHolder
         (trendingNowItemView){
         val imgShow:ImageView = trendingNowItemView.findViewById(R.id.img_trending_now)
         val lblShow:TextView = trendingNowItemView.findViewById(R.id.lbl_trending_now_show)
-        val imgShowProvider:ImageView = trendingNowItemView.findViewById(R.id.img_show_provider)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrendingNowViewHolder {
