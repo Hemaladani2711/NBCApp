@@ -1,4 +1,5 @@
 Completed: MVVM, Dependency Injection, Co-routines
+
 TODO: Unit Tests, Jetpack Compose, Improve UI, Error Handling
 
 
