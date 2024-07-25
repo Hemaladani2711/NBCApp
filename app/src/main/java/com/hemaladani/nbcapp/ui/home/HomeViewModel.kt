@@ -12,12 +12,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-open class HomeViewModel @Inject constructor(private var homeRepository: HomeRepository) : ViewModel
+class HomeViewModel @Inject constructor(private var homeRepository: HomeRepository) : ViewModel
 (){
     val trendingNowShelfLivedata = MutableLiveData<Resource<List<Item>>>()
     val continueWatchingShelfLivedata = MutableLiveData<Resource<List<Item>>>()
     val latestEpisodesShelfLivedata = MutableLiveData<Resource<List<Item>>>()
-    open fun getTrendingNowShelf(){
+    fun getTrendingNowShelf(){
         viewModelScope.launch {
             trendingNowShelfLivedata.value = Resource.Loading()
             homeRepository.fetchHomeShelves().collect{shelves->
@@ -41,7 +41,7 @@ open class HomeViewModel @Inject constructor(private var homeRepository: HomeRep
         }
     }
 
-    open fun getContinueWatchingShelf() {
+    fun getContinueWatchingShelf() {
         viewModelScope.launch {
             continueWatchingShelfLivedata.value = Resource.Loading()
             homeRepository.fetchHomeShelves().collect{shelves->
@@ -66,7 +66,7 @@ open class HomeViewModel @Inject constructor(private var homeRepository: HomeRep
 
 
     }
-    open fun getLatestEpisodesShelf(){
+    fun getLatestEpisodesShelf(){
         viewModelScope.launch {
             latestEpisodesShelfLivedata.value = Resource.Loading()
             homeRepository.fetchHomeShelves().collect{shelves->
