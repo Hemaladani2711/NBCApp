@@ -1,4 +1,4 @@
-package com.hemaladani.nbcapp.ui.home
+package com.hemaladani.nbcapp.ui.home.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,12 +9,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.hemaladani.nbcapp.R
-import com.hemaladani.nbcapp.data.Item
+import com.hemaladani.nbcapp.data.dto.home.Item
 
 class HomeShelvesAdapter(val context:Context, val trendingNowItems:List<Item>):
     RecyclerView
-    .Adapter<HomeShelvesAdapter
-    .TrendingNowViewHolder>() {
+    .Adapter<HomeShelvesAdapter.TrendingNowViewHolder>() {
     inner class TrendingNowViewHolder(trendingNowItemView: View): RecyclerView.ViewHolder
         (trendingNowItemView){
         val imgShow:ImageView = trendingNowItemView.findViewById(R.id.img_trending_now)
