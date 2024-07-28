@@ -5,5 +5,5 @@ import com.hemaladani.nbcapp.data.dto.home.Shelf
 import kotlinx.coroutines.flow.Flow
 
 interface HomeRepository {
-    suspend fun fetchHomeShelves(): Flow<Resource<List<Shelf>>>
+    suspend fun fetchHomeShelves(fileName:String): Flow<Resource<List<Shelf>>>
 }
