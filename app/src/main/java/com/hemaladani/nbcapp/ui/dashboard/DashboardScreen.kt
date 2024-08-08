@@ -6,6 +6,6 @@ import androidx.compose.ui.graphics.Color
 
     //@Preview
     @Composable
-    fun helloWorld_Text(name:String){
-        Text("This is $name Fragment", color = Color.White)
+    fun helloWorld_Text(){
+        Text("This is Dashboard Fragment", color = Color.White)
     }

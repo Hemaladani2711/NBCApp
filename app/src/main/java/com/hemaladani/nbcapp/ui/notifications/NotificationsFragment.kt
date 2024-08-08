@@ -28,7 +28,7 @@ class NotificationsFragment : Fragment() {
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val textNotifications = root.findViewById<ComposeView>(R.id.text_notifications)
-        textNotifications.setContent { helloWorld_Text(name = "Notifications") }
+        textNotifications.setContent { helloWorld_Text() }
         return root
     }
 
