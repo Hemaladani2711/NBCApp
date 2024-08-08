@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.hemaladani.nbcapp.R
 import com.hemaladani.nbcapp.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
@@ -22,19 +24,12 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
-
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        val helloWorldTextView = root.findViewById<ComposeView>(R.id.text_dashboard)
+        helloWorldTextView.setContent { helloWorld_Text("Dashboard") }
         return root
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

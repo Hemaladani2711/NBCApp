@@ -10,4 +10,5 @@
     <string name="txt_latest_episodes">Latest Episodes</string>
     <string name="banner_image">Banner Image</string>
     <string name="banner_provider">Banner provider</string>
+    <string name="show_image_description">Show Images from API</string>
 </resources>
