@@ -5,6 +5,6 @@ data class Item (
     val tagline: String,
     val title: String,
     val subtitle: String,
-    val image: String?,
+    val image: String,
     val labelBadge: String,
 )
