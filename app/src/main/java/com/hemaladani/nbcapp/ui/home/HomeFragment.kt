@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
         Log.d("HomeFragment", "onCreateView")
         return ComposeView(requireContext()).apply {
             setContent {
-                TrendingNowViewSetUp(homeViewModel = homeViewModel)
+                TrendingNowViewSetUp()
             }
         }
     }

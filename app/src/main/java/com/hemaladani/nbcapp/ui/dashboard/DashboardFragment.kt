@@ -14,7 +14,7 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         return ComposeView(requireContext()).apply {
-            setContent { helloWorld_Text() }
+            setContent { }//helloWorld_Text() }
         }
     }
 

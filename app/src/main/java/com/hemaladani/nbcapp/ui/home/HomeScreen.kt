@@ -4,6 +4,9 @@ import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -17,14 +20,19 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.hemaladani.nbcapp.R
 import com.hemaladani.nbcapp.data.dto.home.Shelf
+import java.util.Stack
 
 @Composable
-fun TrendingNowViewSetUp(homeViewModel: HomeViewModel) {
+fun TrendingNowViewSetUp() {
+    val homeViewModel = viewModel<HomeViewModel>()
     LaunchedEffect(key1 = Unit) {
+
         homeViewModel.getTrendingNowShelf()
         homeViewModel.getLatestEpisodesShelf()
         homeViewModel.getContinueWatchingShelf()
@@ -60,11 +68,12 @@ fun PopulateShelves(shelf: Shelf) {
         Text(text = shelf.title, color = Color.White)
         LazyRow {
             items(shelf.items) { show ->
-                Column {
+                Column (modifier = Modifier.height(200.dp).width(200.dp)){
                     show?.image?.let {
                         GlideImage(
                             model = it,
-                            contentDescription = stringResource(id = R.string.show_image_description)
+                            contentDescription = stringResource(id = R.string.show_image_description),
+                            modifier = Modifier.size(100.dp)
                         )
                     }
                     show?.title?.let {
@@ -76,3 +85,4 @@ fun PopulateShelves(shelf: Shelf) {
         }
     }
 }
+
